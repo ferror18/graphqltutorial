@@ -21,3 +21,15 @@ const books = [
         author: 'lorem'
     }
 ]
+
+const resolvers = {
+    Query: {
+        books: () => books,
+    },
+};
+
+const server = new ApolloServer({ typeDefs, resolvers})
+
+server.listen().then(({url}) => {
+    console.log(`Server Ready at ${url}`);
+})
